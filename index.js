@@ -7,6 +7,5 @@ module.exports = function SourceMapEmitter(input, sourceMap){
         return path.basename(filePath);
     });
     fs.writeFileSync(path.join(__dirname, filename + ".map"), JSON.stringify(sourceMap));
-    fs.unlinkSync(this.resourcePath + ".generated.js");
     return input + "\n//@ sourceMappingURL=" + filename + ".map";
 };
